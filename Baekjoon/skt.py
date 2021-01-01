@@ -147,3 +147,11 @@ def solution(arr, processes):
     # print("==========")
     # print(answer)
     return result
+
+def get_answer(n):
+	prev = 1
+	for i in range(2, n+1):
+		prev = prev + i-1
+	return prev
+
+print(get_answer(6))
