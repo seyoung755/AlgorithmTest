@@ -1,4 +1,3 @@
-import collections
 from copy import deepcopy
 
 def solution(user_id, banned_id):
@@ -29,8 +28,10 @@ def solution(user_id, banned_id):
 
 def dfs(candidates, users, result, results):
     
+    # 더 이상 순회할 노드가 없다 -> 최종 결과를 저장하는 results에 경로를 저장
     if not candidates:
-        # print(result)
+        # 경로 간 중복을 제거하기 위해 경로를 정렬 후 set 자료형에 저장
+        # 이 때, list는 set에 직접 넣을 수 없으므로 tuple로 변환한다
         results.add(tuple(sorted(result)))
         return 
         
