@@ -1,4 +1,5 @@
-from collections import defaultdict, deque, Counter
+from collections import defaultdict, deque
+
 def bfs(n, start, graph):
     visited = [0 for _ in range(n+1)]
     visited[start] = 1
@@ -9,6 +10,7 @@ def bfs(n, start, graph):
         for node in graph[cur]:
             if not visited[node]:
                 q.append([node, dist+1])
+                # 방문처리를 하면서 해당 노드까지의 거리를 기록
                 visited[node] = dist+1
     return visited
                 
@@ -19,15 +21,13 @@ def solution(n, edge):
     
     graph = defaultdict(list)
     
+    # 그래프 작성
     for e1, e2 in edge:
         graph[e1].append(e2)
         graph[e2].append(e1)
         
-    # print(graph)
     result = bfs(n, 1, graph)
-    print(result)
-    counter = Counter(result)
-    # answer = counter.most_common(1)[0][1]
+
     answer = result.count(max(result))
         
     return answer
