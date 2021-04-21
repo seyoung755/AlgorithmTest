@@ -1,5 +1,6 @@
 import collections
 from copy import deepcopy
+
 def solution(expression):
     answer = 0
     
@@ -22,6 +23,8 @@ def solution(expression):
           ['*', '+', '-'], ['+', '-', '*'],
           ['-', '*', '+'], ['-','+','*']]
         
+
+    
         
     # 우선 순위를 하나씩 넣어가며 수식 값 계산
     for i in range(len(com)):
@@ -52,4 +55,8 @@ def calc(nums, operands, com):
                     break
 
     return abs(nums[0])
+
+from itertools import permutations
     
+com = [list(x) for x in permutations(['+', '-', '*'], 3)]
+print(com)
