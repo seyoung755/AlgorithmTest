@@ -25,7 +25,7 @@ def solution(gems):
             '''
             if gem == gems[left]:
                 total[gem] = right
-                temp = len(gems)
+                temp = right
                 for g in q:
                     temp = min(temp, total[g])
                 left = temp
