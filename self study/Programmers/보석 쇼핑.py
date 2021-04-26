@@ -42,10 +42,11 @@ def solution(gems):
         if len(q) == n:
             if not result:
                 result.append([left+1, right+1])
+                continue
             if left+1 != result[-1][0]:
                 result.append([left+1, right+1])
     
     # 구간 길이 , 구간 시작점 별 정렬
     result = sorted(result, key=lambda x :[x[1]-x[0], x[0]])
-    print(result)
+
     return result[0]
