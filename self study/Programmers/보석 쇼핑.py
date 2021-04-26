@@ -21,8 +21,7 @@ def solution(gems):
         # 이미 등장한 보석인 경우
         if gem in q:
             '''
-            보석 구간 중에 첫 보석인 경우에는 현재까지 등장한 종류가 지켜지는 한도에서
-            가장 오른쪽으로 left 포인터를 옮겨준다
+            보석 구간 중에 첫 보석인 경우에는 현재까지 등장한 종류가 지켜지는 한도까지 left를 옮긴다
             '''
             if gem == gems[left]:
                 total[gem] = right
