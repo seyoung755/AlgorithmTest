@@ -14,30 +14,28 @@ for _ in range(M):
     board[r][c].append([m,s,d])
 
 for _ in range(K):
-    print(board)
+    # print(board)
     temp_board = [[[] for _ in range(N)] for _ in range(N)]
     for i in range(N):
         for j in range(N):
             for ball in board[i][j]:
                 
-                ball = board[i][j].pop()
-        
+                
                 m, s, d = ball
+                # print(m,s,d)
                 dr, dc = dir[d]
-                nr, nc = i+dr, j+dc
-                for _ in range(s):
-                    if 0 <= nr < N and 0 <= nc < N:
-                        nr += dr
-                        nc += dc
-                    else:
-                        break
-                # print(nr,nc)
+                nr, nc = i + dr*s, j + dc*s
+                
+                nr %= N
+                nc %= N
+                
+                # print(m,s,d,nr,nc)
                 temp_board[nr][nc].append([m,s,d])
-    print(temp_board)
+    # print(temp_board)
     board = [[[] for _ in range(N)] for _ in range(N)]
     for i in range(N):
         for j in range(N):
-            if temp_board[i][j]:
+            if len(temp_board[i][j]) > 1:
                 # print("yes")
                 mass_sum, speed_sum, prev = 0, 0, -1
                 mode = True
@@ -46,9 +44,9 @@ for _ in range(K):
                     m, s, d = ball
                     mass_sum += m
                     speed_sum += s
-                    if prev == -1 or prev == mode%2 and mode:
+                    if prev == -1 or prev == d%2 and mode:
                         mode = True
-                        prev = mode%2
+                        prev = d%2
                     else:
                         mode = False
                     
@@ -62,11 +60,17 @@ for _ in range(K):
                             board[i][j].append([m, s, 2*a])
                         else:
                             board[i][j].append([m, s, 2*a+1]) 
+            elif temp_board[i][j]:
+                board[i][j].append(temp_board[i][j][0])
 
-                # print(board)
-    # print(-1 == True)
-                    
+# print(board)
+result = 0
 
+for row in board:
+    for i in range(N):
+        # print(row[i])
+        if row[i]:
+            for col in row[i]:
+                result += col[0]
 
-
-print(board)
+print(result)
