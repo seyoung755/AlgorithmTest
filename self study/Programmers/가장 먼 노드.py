@@ -10,7 +10,7 @@ def bfs(n, start, graph):
         for node in graph[cur]:
             if not visited[node]:
                 q.append([node, dist+1])
-                # 방문처리를 하면서 해당 노드까지의 거리를 기록
+                # 방문 처리 배열에 거리까지 저장
                 visited[node] = dist+1
     return visited
                 
@@ -18,16 +18,17 @@ def bfs(n, start, graph):
 
 def solution(n, edge):
     answer = 0
-    
+
+    # 그래프 만들기
     graph = defaultdict(list)
     
-    # 그래프 작성
     for e1, e2 in edge:
         graph[e1].append(e2)
         graph[e2].append(e1)
-        
-    result = bfs(n, 1, graph)
 
+    # bfs 호출
+    result = bfs(n, 1, graph)
+    # 방문 결과 거리가 가장 먼 노드의 개수 세기
     answer = result.count(max(result))
         
     return answer
