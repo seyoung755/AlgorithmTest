@@ -71,6 +71,12 @@ public class MergeSort {
     public static void main(String[] args) {
 
         /* 병합정렬은 주어진 배열을 절반씩 쪼갠다음 더 이상 쪼개지지 않을 때 정렬하면서 올라오는 방식이다
+        병합정렬의 특징
+        - 시간 복잡도 : 어느 경우에도 O(nlogn)
+        - 데이터 크기만큼의 추가 메모리가 필요하다 -> 제자리 정렬이 아니다
+            - 제자리 정렬로 구현하는 방법에는 연결리스트로 데이터를 구성하여 인덱스만 변경하는 식으로 정렬하는 방법이 있다.
+        - Stable sort이다. (같은 값끼리는 순서가 바뀌지 않는다.)
+
         */
         Integer[] arr = {6,3,10,-3,-10,0,17};
         ArrayList ll = new ArrayList(Arrays.asList(arr));
