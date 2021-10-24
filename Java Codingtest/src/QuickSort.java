@@ -58,6 +58,15 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
+
+        /* 퀵 정렬의 특징
+        - 시간 복잡도 : 최악의 경우에 O(n^2), pivot이 최솟값이 최댓값을 설정되는 경우
+            - 하지만 일반적으로 O(nlogn)의 성능을 가지며, O(nlogn)의 정렬 중 가장 빠르다.
+        - 추가 메모리 없이 정렬이 가능하다 -> 제자리 정렬이다.
+        - Unstable sort이다 -> stable로 만들기 위해서는 O(n^2)의 추가 메모리가 필요하다.
+        - 이미 정렬된 배열에 대해서는 불균형 분할에 의해 시간이 더 오래 걸린다.
+         */
+
         System.out.println("Quick sort");
         int[] arr = {3, 7, 2, 4, 1, 9, 6};
         rightPivotSort(arr, 0, arr.length - 1);
