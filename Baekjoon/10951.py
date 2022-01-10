@@ -2,10 +2,10 @@ def get_answer(a, b):
     return a+b
 
 while True:
-    
-    s = input().split()
-    if not s:
+    try:
+        s = input().split()
+        a, b = map(int, s)
+        print(get_answer(a,b))
+    except EOFError:
         break
-    a, b = map(int, s)
-    print(get_answer(a,b))
 
