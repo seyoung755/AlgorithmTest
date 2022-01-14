@@ -90,7 +90,7 @@ blocks = [ # 2 + 1 + 4 + 4 + 2 + 2 + 4 = 19
     # [(0,0), (1,0), (1,-1), (2,-1)]
     
 ]
-print(len(blocks))
+# print(len(blocks))
 # print(board)
 answer = 0
 for r in range(R):

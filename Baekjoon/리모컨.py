@@ -7,13 +7,14 @@ def get_solution():
         buttons = input().split()
     elif M == 10:
         return answer
+    elif M == 0:
+        return min(answer, len(list(str(N))))
+
 
     candidate = []
     
-    
     for dist in range(N+1):
         low = list(str(N-dist))
-        dist += 1
         temp = ''
         for char in low:
             temp += char
@@ -23,11 +24,10 @@ def get_solution():
             candidate.append(temp)
             break
 
-    dist = 0
+    
     for dist in range(answer+1):
         high = list(str(N+dist))
         temp = ''
-        dist += 1
         for char in high:
             temp += char
             if char in buttons:
