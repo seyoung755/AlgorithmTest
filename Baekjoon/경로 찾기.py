@@ -31,7 +31,7 @@ for i in range(N):
     
     dfs(i)
 
-print(result)
+# print(result)
 
 for i in range(N):
     print(" ".join(result[i]))

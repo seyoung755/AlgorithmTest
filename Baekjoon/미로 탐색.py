@@ -6,7 +6,7 @@ def get_answer():
     for _ in range(N):
         board.append(list(map(int, list(input()))))
     
-    print(board)
+    # print(board)
     visited = [[False for _ in range(M)] for _ in range(N)]
     q = deque()
     q.append([0,0,1])

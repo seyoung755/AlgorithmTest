@@ -58,7 +58,7 @@ def post_order(start, end):
     if start > end:
         return
 
-    print(pre_order[start:end+1])
+    # print(pre_order[start:end+1])
 
     root = pre_order[start]
     idx = start+1
