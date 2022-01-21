@@ -21,9 +21,6 @@ def dfs(queens, next_queen):
         dfs(queens[:], next_queen)
 
     
-
-
-
 N = int(input())
 
 answer = 0
