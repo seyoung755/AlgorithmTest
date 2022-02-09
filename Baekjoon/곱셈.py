@@ -14,4 +14,4 @@ def multi (a, n):
         else:
             return (tmp * tmp * a) % C
 
-print(multi(A,B))
+print(multi(A,B))3
