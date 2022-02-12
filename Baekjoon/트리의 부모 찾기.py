@@ -9,7 +9,7 @@ for _ in range(N-1):
     graph[a].append(b)
     graph[b].append(a)
 
-print(graph)
+# print(graph)
 
 q = deque()
 
