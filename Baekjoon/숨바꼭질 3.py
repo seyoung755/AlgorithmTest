@@ -33,14 +33,16 @@ def get_solution():
             q.append([pos*2, cnt])
             visited[pos*2] = True
 
-        if pos+1 <= MAX_POS and not visited[pos+1]:
-            q.append([pos+1, cnt+1])
-            visited[pos+1] = True
 
         if pos-1 >= 0 and not visited[pos-1]:
             q.append([pos-1, cnt+1])
             visited[pos-1] = True
 
 
+        if pos+1 <= MAX_POS and not visited[pos+1]:
+            q.append([pos+1, cnt+1])
+            visited[pos+1] = True
+
+
 get_solution()
-print(answer)
+print(min(answer))
