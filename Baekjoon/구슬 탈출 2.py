@@ -6,3 +6,4 @@ for _ in range(R):
     board.append(list(input()))
 
 print(board)
+

@@ -1,9 +1,5 @@
 from collections import deque
 
-# 벨트를 주기적으로 회전시켜야 한다. 
-# (첫 위치 + 돌아간 턴) % 전체 크기를 통해 현재 위치를 구할 수 있다.
-# 올리는 위치는 항상 0번 인덱스이고, 내리는 위치는 len(belt)-1 인덱스이다.
-
 N, K = list(map(int, input().split()))
 
 belt = list(map(int, input().split()))

@@ -24,7 +24,7 @@ for _ in range(M+K):
         change[start] = end
     else:
         origin = acc_sum[end] - acc_sum[start-1]
-        for key, value in sorted(change.items()):
+        for key, value in change.items():
             if key < start or key > end:
                 continue
             origin += (value - nums[key])

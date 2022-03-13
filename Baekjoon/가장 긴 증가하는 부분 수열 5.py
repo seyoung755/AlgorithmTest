@@ -37,16 +37,16 @@ for num in arr:
 length = len(result)-1
 print(length)
 
-LIS = []
+# LIS = []
 
-for idx in range(len(answer)-1, -1, -1):
-    if answer[idx] == length:
-        LIS.append(arr[idx])
-        length -= 1
+# for idx in range(len(answer)-1, -1, -1):
+#     if answer[idx] == length:
+#         LIS.append(arr[idx])
+#         length -= 1
 
 
 
-# print(answer)
-for num in LIS[::-1]:
-    print(num, end=' ')
+# # print(answer)
+# for num in LIS[::-1]:
+#     print(num, end=' ')
 # print(" ".join(list(map(str, answer[1:]))))

@@ -10,6 +10,7 @@ graph = defaultdict(list)
 for _ in range(M):
     u, v = list(map(int, input().split()))
     graph[u].append(v)
+    graph[v].append(u)
 
 visited = [0 for _ in range(N+1)]
 result = 0
@@ -21,7 +22,7 @@ for start in range(1, N+1):
         q.append(start)
 
         while q:
-            print(q)
+            # print(q)
             cur_node = q.popleft()
             visited[cur_node] = 1
             for next_node in graph[cur_node]:
