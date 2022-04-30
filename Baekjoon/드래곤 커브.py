@@ -58,3 +58,5 @@ for r in range(R):
             answer += 1
 
 print(answer)
+
+# 12시 50분 제출
