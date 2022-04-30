@@ -1,5 +1,4 @@
 import sys, heapq
-from threading import local
 
 # 테케의 수가 100만 
 # n^2은 안되고 nlogn?
@@ -14,24 +13,21 @@ for _ in range(T):
     answer = 0
     N = int(input())
     days = list(map(int, input().split()))
-   
-    local_max = 0
-    cnt = 0
-    sum = 0
+    daysum = [0 for _ in range(N)]
+    heap = []
 
-    for price in days[::-1]:
-        
-        if price > local_max:
-            # 청산
-            answer += (cnt * local_max - sum)
-            local_max = price
-            cnt = 0
-            sum = 0
+    # 1. 누적합을 구한다.
+    # 2. 고점 순으로 정렬한다음 고점의 날짜 전으로 싹 풀매수 해버린다.
+    # 3. 누적합을 통해 이익을 계산한다.
+    # 4. 다음 고점 중 이전 고점 이후만 조사한다. 이러면 O(n)
 
-        else:
-            # 매수
-            cnt += 1
-            sum += price
-        # print(local_max, cnt, sum)
-    answer += (cnt * local_max - sum)
-    print(answer)
+    for day, price in enumerate(days):
+        daysum[day] += (daysum[day-1] + price)
+        heapq.heappush(heap, [-price, day])
+
+    # print(daysum)
+    # print(heap)
+
+    sold_date = 0
+    current_max = 0
+
