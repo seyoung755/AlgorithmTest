@@ -34,7 +34,7 @@ def solution(alp, cop, problems):
     check_problems()
     print(candidate)
 
-    for t in range(2):
+    for t in range(3):
         cur_algo, cur_coding = 0, 0
         for i in range(N):
             this_algo, this_coding = dp[t][i]

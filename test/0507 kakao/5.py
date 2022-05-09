@@ -1,3 +1,4 @@
+from copy import deepcopy
 def solution(rc, operations):
     answer = [[]]
     R = len(rc)
@@ -18,21 +19,23 @@ def solution(rc, operations):
     for r in range(R-2, 0, -1):
         order.append((r, 0))
 
-    N = len(order)
+    # N = len(order)
     board = rc
 
     def shift(board):
-        board = [board[-1]] + board[:-1]
+        tail = board.pop()
+        board = [tail] + board
+        # board = [board[-1]] + board[:-1]
         return board
 
-    def rotate(board):
+    def rotate(board, cnt):
+        new_board = deepcopy(board)
         temp = []
-        for r, c in order:
-            temp.append(board[r][c])
+        for idx, item in enumerate(order):
+            r, c = item
+            nr, nc = order[idx-cnt]
+            board[r][c] = new_board[nr][nc]
         
-        for idx, num in enumerate(temp):
-            r, c = order[(idx+1)%N] 
-            board[r][c] = num
         return board
 
     shift_cnt = 0
@@ -40,12 +43,11 @@ def solution(rc, operations):
     for operation in operations:
         if operation == "ShiftRow":
             if rotate_cnt > 0:
-                for _ in range(rotate_cnt % unit):
-                    board = rotate(board)
+                cnt = rotate_cnt % unit
+                board = rotate(board, cnt)
                 rotate_cnt = 0
             shift_cnt += 1
 
-        
         else:
             if shift_cnt > 0:
                 for _ in range(shift_cnt % R):
@@ -60,12 +62,7 @@ def solution(rc, operations):
             board = shift(board)
 
     if rotate_cnt > 0:
-        for _ in range(rotate_cnt % unit):
-            board = rotate(board)
+        cnt = rotate_cnt % unit
+        board = rotate(board, cnt)
 
     return board
-
-
-# 정확성 2시 59분
-board = [[1,2,3],[4,5,6]]
-print([board.pop()] + board)

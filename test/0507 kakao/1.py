@@ -21,4 +21,4 @@ def solution(survey, choices):
 
     return answer
 
-    # 2
+    # 2시 10분
